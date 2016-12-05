@@ -27,25 +27,45 @@
       // 設定當前練習文章
       $scope.currenttext = $scope.input_text;
       // 重設練習進度
-      $scope.currentword = $scope.currenttext[0];
-      $scope.currentword_progress = 0;
-      $scope.currenttext_progress = 0;
+      _resetProgress();
     }
 
     function appKeyPressed(event) {
       if ($scope.currentword) {
         var word_cjcode = cjcodeFilter($scope.currentword);
         if (word_cjcode[$scope.currentword_progress] == event.key) {
-          $scope.currentword_progress += 1;
+          _nextKeycode();
           if ($scope.currentword_progress == word_cjcode.length) {
-            $scope.currentword_progress = 0;
-            $scope.currenttext_progress += 1;
-            $scope.currentword = $scope.currenttext[$scope.currenttext_progress];
+            _nextWord();
           }
           $scope.$apply();
         }
       }
     }
+
+    function _resetProgress() {
+      // 重設練習進度
+      $scope.currentword = $scope.currenttext[0];
+      $scope.currentword_progress = 0;
+      $scope.currenttext_progress = 0;
+    }
+
+    function _nextKeycode() {
+      $scope.currentword_progress += 1;
+    }
+
+    function _nextWord() {
+      $scope.currentword_progress = 0;
+      $scope.currenttext_progress += 1;
+      let nextWord = $scope.currenttext[$scope.currenttext_progress];
+      if (nextWord) {
+        $scope.currentword = $scope.currenttext[$scope.currenttext_progress];
+      }
+      if (!cjcodeFilter($scope.currentword)) {
+        _nextWord();
+      }
+    }
+
   }
 
   function cjcodeFilterFactory() {
