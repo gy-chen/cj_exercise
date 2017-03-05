@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.current_keycode::before, .current_word::before {
+  content: '>'
+}
