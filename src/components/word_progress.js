@@ -19,8 +19,10 @@ class WordProgress extends Component {
 
   render() {
     return (
-      <div>
-        {this._render_progress()}
+      <div className="row row-current-progress">
+        <div className="col-sm-12 col-md-4 col-md-offset-4 text-center">
+          <span className="h2">{this._render_progress()}</span>
+        </div>
       </div>
     );
   }

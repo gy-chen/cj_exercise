@@ -19,11 +19,23 @@ class ParagraphInput extends Component {
   render() {
 
     return (
-      <div>
-        <textarea
-          onChange={({target: { value }}) => this.setState({ input_paragraph: value })}
-          value={this.state.input_paragraph} />
-        <button onClick={() => _.invoke(this.props, 'on_paragraph_input', this.state.input_paragraph)}>OK</button>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="form">
+            <div className="form-group">
+              <label htmlFor="paragraph">Paragraph</label>
+              <textarea
+                id="paragraph"
+                className="form-control"
+                onChange={({target: { value }}) => this.setState({ input_paragraph: value })}
+                value={this.state.input_paragraph} />
+            </div>
+            <button
+              onClick={() => _.invoke(this.props, 'on_paragraph_input', this.state.input_paragraph)}
+              className="btn btn-default"
+              >OK</button>
+          </div>
+        </div>
       </div>
     );
   }

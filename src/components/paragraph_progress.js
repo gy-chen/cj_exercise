@@ -19,8 +19,10 @@ class ParagraphProgress extends Component {
 
   render() {
     return (
-      <div>
-        {this._render_progress()}
+      <div className="row row-current-progress">
+        <div className="col-md-12">
+          {this._render_progress()}
+        </div>
       </div>
     );
   }

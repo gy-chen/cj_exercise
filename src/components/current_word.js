@@ -6,8 +6,10 @@ const CurrentWord = ({ current_word }) => {
   }
 
   return (
-    <div>
-      { current_word }
+    <div className="row">
+      <div className="col-sm-12 col-md-offset-4 col-md-4 text-center">
+        <span className="h1">{ current_word }</span>
+      </div>
     </div>
   );
 };

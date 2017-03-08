@@ -5,5 +5,12 @@ body {
 }
 
 .current_keycode::before, .current_word::before {
-  content: '>'
+  content: '>';
+  position: absolute;
+  transform: rotate(90deg) translateX(-0.7em);;
+  transform-origin: right;
+}
+
+.row-current-progress {
+  margin-top: 3em;
 }
