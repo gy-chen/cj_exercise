@@ -11,6 +11,11 @@ body {
   transform-origin: right;
 }
 
+.current_word {
+  display: inline-block;
+  margin-top: 0.8em;
+}
+
 .row-current-progress {
   margin-top: 3em;
 }
